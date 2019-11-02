@@ -2,9 +2,13 @@
   "name": "opml-generator",
   "version": "1.1.1",
   "description": "opml generator for node.js",
-  "main": "opml-generator.js",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
   "scripts": {
-    "test": "mocha tests"
+    "test": "jest",
+    "build": "tsc -b",
+    "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -22,10 +26,27 @@
   },
   "homepage": "https://github.com/azu/opml-generator",
   "dependencies": {
-    "xml": "^1.0.0"
+    "xml": "^1.0.1"
   },
   "devDependencies": {
-    "mocha": "^2.2.4",
-    "power-assert": "^0.11.0"
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/jest": "^24.0.21",
+    "@types/xml": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.0-beta"
   }
 }

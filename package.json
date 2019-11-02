@@ -1,30 +1,30 @@
 {
-  "name": "opml-generator",
-  "version": "1.1.1",
+  "name": "@kohlmannj/opml-generator",
+  "version": "2.0.0",
   "description": "opml generator for node.js",
-  "main": "dist/index.js",
-  "types": "dist/types.d.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "source": "src/index.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc -b",
+    "build": "tsc -p ./src/tsconfig.json",
     "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/azu/opml-generator.git"
+    "url": "git://github.com/kohlmannj/opml-generator.git"
   },
   "keywords": [
     "opml",
     "rss",
     "feeds"
   ],
-  "author": "azu",
+  "author": "Joseph Kohlmann <kohlmannj@mac.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/azu/opml-generator/issues"
+    "url": "https://github.com/kohlmannj/opml-generator/issues"
   },
-  "homepage": "https://github.com/azu/opml-generator",
+  "homepage": "https://github.com/kohlmannj/opml-generator",
   "dependencies": {
     "xml": "^1.0.1"
   },

@@ -8,6 +8,9 @@ module.exports = {
     'prettier/@typescript-eslint',
   ],
   plugins: ['jest', 'json'],
+  rules: {
+    'import/prefer-default-export': 'off',
+  },
   settings: {
     'import/resolver': {
       node: {

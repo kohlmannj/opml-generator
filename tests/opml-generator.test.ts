@@ -5,16 +5,17 @@
  */
 
 import opml, { createHeader, createBody } from '../src/opml-generator'
+import { Header, SubscriptionList } from '../src/types'
 
 describe('opml', () => {
   it('should concat header + outlines', () => {
-    const header = {
+    const header: Header = {
       title: 'title-text',
       dateCreated: new Date(2014, 2, 9),
       ownerName: 'azu',
     }
     const headerXML = createHeader(header)
-    const outlines = [
+    const outlines: SubscriptionList = [
       {
         text: 'txt',
         title: 'title-text',
@@ -77,7 +78,7 @@ describe('outline', () => {
     const results = createBody([
       {
         text: 'one',
-        _children: [{ text: 'childofone' }],
+        outline: [{ text: 'childofone' }],
       },
       {
         text: 'two',

@@ -1,6 +1,6 @@
 {
   "name": "@kohlmannj/opml-generator",
-  "version": "2.0.0",
+  "version": "2.0.0-alpha.0",
   "description": "opml generator for node.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,10 +14,14 @@
     "type": "git",
     "url": "git://github.com/kohlmannj/opml-generator.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "opml",
     "rss",
-    "feeds"
+    "feeds",
+    "typescript"
   ],
   "author": "Joseph Kohlmann <kohlmannj@mac.com>",
   "license": "MIT",

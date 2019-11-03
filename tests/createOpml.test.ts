@@ -4,18 +4,17 @@
  * @see https://github.com/azu/opml-generator
  */
 
-import opml, { createHeader, createBody } from '../src/opml-generator'
-import { Header, SubscriptionList } from '../src/types'
+import { createOpml, createHead, createBody, Head, Subscription } from '../src'
 
-describe('opml', () => {
+describe('createOpml', () => {
   it('should concat header + outlines', () => {
-    const header: Header = {
+    const head: Head = {
       title: 'title-text',
       dateCreated: new Date(2014, 2, 9),
       ownerName: 'azu',
     }
-    const headerXML = createHeader(header)
-    const outlines: SubscriptionList = [
+    const headXml = createHead(head)
+    const body: Subscription[] = [
       {
         text: 'txt',
         title: 'title-text',
@@ -31,16 +30,16 @@ describe('opml', () => {
         htmlUrl: 'http://example.com/',
       },
     ]
-    const outlinesXML = createBody(outlines)
-    expect(opml(header, outlines)).toBe(
-      `<?xml version="1.0" encoding="UTF-8"?><opml version="2.0">${headerXML}${outlinesXML}</opml>`,
+    const bodyXml = createBody(body)
+    expect(createOpml(head, body)).toBe(
+      `<?xml version="1.0" encoding="UTF-8"?><opml version="2.0">${headXml}${bodyXml}</opml>`,
     )
   })
 })
 
 describe('header', () => {
   it('should create <head /> string', () => {
-    const results = createHeader({
+    const results = createHead({
       title: 'title-text',
       dateCreated: new Date('Sun, 09 Mar 2014 08:00:00 GMT'),
       ownerName: 'azu',
@@ -78,7 +77,7 @@ describe('outline', () => {
     const results = createBody([
       {
         text: 'one',
-        outline: [{ text: 'childofone' }],
+        children: [{ text: 'childofone' }],
       },
       {
         text: 'two',

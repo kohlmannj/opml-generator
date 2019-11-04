@@ -1,4 +1,4 @@
-import { Doc, Subscription } from '../src/types'
+import { Doc, Subscription } from '../../src/types'
 
 /** @see http://hosting.opml.org/dave/spec/subscriptionList.opml */
 export const subscriptionList: Doc<Subscription> = {

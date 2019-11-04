@@ -1,4 +1,4 @@
-import { Doc } from '../src/types'
+import { Doc } from '../../src/types'
 
 export const category: Doc = {
   head: {

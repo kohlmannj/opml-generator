@@ -1,5 +1,12 @@
 {
   "extends": "../tsconfig.settings.json",
   "references": [{ "path": "../src" }],
-  "include": ["**/*.ts", "../@types"]
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "module": "esnext",
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts", "../@types"]
 }

@@ -1,4 +1,4 @@
-import { Doc } from '../src/types'
+import { Doc } from '../../src/types'
 
 /** @see http://hosting.opml.org/dave/florida.opml */
 export const florida: Doc = {

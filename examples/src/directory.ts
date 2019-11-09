@@ -1,4 +1,4 @@
-import { Doc, Link } from '../../src/types'
+import { Doc, Link } from '../../src'
 
 /** @see http://hosting.opml.org/dave/spec/directory.opml */
 export const directory: Doc<Link> = {

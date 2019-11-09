@@ -6,21 +6,23 @@
 
 import { createBody } from './createBody'
 import { createHead } from './createHead'
-import { Doc, Head, Body } from '../types'
+import { Head } from '../types/Head'
+import { Doc } from '../types/Doc'
+import { Body } from '../types'
 
 // export function createOpml<T, CT>(body: Body<T, CT>): string
 
-export function createDoc<T, CT>(head: Head | undefined, body: Body<T, CT>): Doc<T, CT> {
+export function createDoc<T extends object>(head: Head | undefined, body: Body<T>): Doc<T> {
   return { head, body }
 }
 
-export function createOpml<T, CT>(head: Head | undefined, body: Body<T, CT>): string
+export function createOpml<T extends object>(head: Head | undefined, body: Body<T>): string
 
-export function createOpml<T, CT>(doc: Doc<T, CT>): string
+export function createOpml<T extends object>(doc: Doc<T>): string
 
-export function createOpml<T, CT>(
-  headOrDoc: Doc<T, CT> | Head | undefined,
-  bodyArg?: Body<T, CT>,
+export function createOpml<T extends object>(
+  headOrDoc: Doc<T> | Head | undefined,
+  bodyArg?: Body<T>,
 ): string {
   let head: Head = {}
   if (headOrDoc) {
@@ -31,7 +33,7 @@ export function createOpml<T, CT>(
     }
   }
 
-  let body: Body<T, CT> = []
+  let body: Body<T> = []
   if (headOrDoc && 'body' in headOrDoc && headOrDoc.body) {
     const { body: bodyProp } = headOrDoc
     /**

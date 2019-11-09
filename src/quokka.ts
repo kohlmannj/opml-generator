@@ -1,5 +1,5 @@
-import { createOpml, Head, Outline } from '.'
-import { createDoc } from './createOpml'
+import { createDoc, createOpml, Head, Outline } from '.'
+import { Subscription, OutlineObject } from './types'
 
 const head: Head = {
   title: 'title-text',
@@ -13,13 +13,19 @@ const o: Outline<{ foo: 'bar' }> = {
   children: [{ text: 'foo', foo: 'bar' }],
 }
 
-const p: Outline<{ foo: 'bar' }, { foo: 'bar'; bar: 'baz' }> = {
+const p: Outline<{ foo: 'bar'; bar?: 'baz' }> = {
   text: 'asdf',
   foo: 'bar',
   children: [{ text: 'foo', foo: 'bar', bar: 'baz' }],
 }
 
-const outlines = [
+const q: Outline<{ foo: 'bar' }> = {
+  text: 'asdf',
+  foo: 'bar',
+  children: [{ text: 'foo', foo: 'bar' }],
+}
+
+const outlines: Subscription[] = [
   {
     text: 'txt',
     title: 'title-text',
@@ -36,7 +42,9 @@ const outlines = [
   },
 ]
 
-const doc1 = createDoc(head, [o, p])
+const body: OutlineObject<{ foo: 'bar'; bar?: 'baz' }>[] = [o, p, q]
+
+const doc1 = createDoc(head, body)
 const result1 = createOpml(doc1)
 console.log(result1)
 

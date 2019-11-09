@@ -1,4 +1,4 @@
-import { Doc } from '../../src/types'
+import { Doc } from '../../src'
 import { florida } from './florida'
 
 /** @see http://hosting.opml.org/dave/spec/placesLived.opml */
